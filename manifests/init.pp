@@ -30,7 +30,7 @@
 # [*storage_size*]
 #   Size of cache
 # [*varnish_version*]
-#   Major Varnish version to use - 3.0 or 4.0
+#   Major Varnish version to use - 3.X or 5.X
 # [*vcl_reload*]
 #   Script to use to load new Varnish config
 # [*package_ensure*]
@@ -68,7 +68,7 @@ class varnish (
   unless is_integer($max_threads) { fail('max_threads invalid') }
   validate_absolute_path($storage_file)
   validate_hash($runtime_params)
-  validate_re($varnish_version, '^[3-4]\.0')
+  validate_re($varnish_version, '^[3-5]')
   validate_re($storage_type, '^(malloc|file)$')
 
   if ($addrepo) {
